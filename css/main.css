@@ -1,0 +1,28 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.main {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #eee;
+  padding: 36px 60px;
+  border-radius: 6px;
+}
+#total {
+  margin: 10px;
+  font-size: 32px;
+  font-weight: bold;
+}
+.btn {
+  margin-top: 15px;
+}
