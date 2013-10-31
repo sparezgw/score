@@ -1,37 +1,31 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
+    <meta charset="utf-8">
     <title>SCORE</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/flat-ui.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
   </head>
   <body>
-
     <div class="container">
-
-      <!-- Static navbar -->
-      <div class="navbar navbar-default">
+      <div class="navbar navbar-inverse">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="#">分数统计</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">选手列表 <b class="caret"></b></a>
-              <ul id="players" class="dropdown-menu">
+              <a href="#">选手列表 <b class="caret"></b></a>
+              <ul id="players">
                 <li><a href="#" data-id="1">张三</a></li>
                 <li><a href="#" data-id="2">李四</a></li>
                 <li><a href="#" data-id="3">王五</a></li>
-              </ul>
+              </ul> <!-- /Sub menu -->
             </li>
             <li><a href="#" id="list">分数总览</a></li>
           </ul>
@@ -43,69 +37,84 @@
       </div>
 
       <div class="main">
-        <h1><span class="label label-primary"></span> </h1>
-        
+        <h2></h2>
         <div class="row">
           <div class="col-lg-3">
             <label for="p1">1号评委</label>
-            <input type="number" id="p1" class="form-control input-lg" placeholder="">
+            <input type="number" id="p1" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p2">2号评委</label>
-            <input type="number" id="p2" class="form-control input-lg" placeholder="">
+            <input type="number" id="p2" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p3">3号评委</label>
-            <input type="number" id="p3" class="form-control input-lg" placeholder="">
+            <input type="number" id="p3" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p4">4号评委</label>
-            <input type="number" id="p4" class="form-control input-lg" placeholder="">
+            <input type="number" id="p4" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p5">5号评委</label>
-            <input type="number" id="p5" class="form-control input-lg" placeholder="">
+            <input type="number" id="p5" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p6">6号评委</label>
-            <input type="number" id="p6" class="form-control input-lg" placeholder="">
+            <input type="number" id="p6" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p7">7号评委</label>
-            <input type="number" id="p7" class="form-control input-lg" placeholder="">
+            <input type="number" id="p7" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p8">8号评委</label>
-            <input type="number" id="p8" class="form-control input-lg" placeholder="">
+            <input type="number" id="p8" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p9">9号评委</label>
-            <input type="number" id="p9" class="form-control input-lg" placeholder="">
+            <input type="number" id="p9" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p10">10号评委</label>
-            <input type="number" id="p10" class="form-control input-lg" placeholder="">
+            <input type="number" id="p10" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p11">11号评委</label>
-            <input type="number" id="p11" class="form-control input-lg" placeholder="">
+            <input type="number" id="p11" class="form-control input-lg">
           </div>
           <div class="col-lg-3">
             <label for="p12">12号评委</label>
-            <input type="number" id="p12" class="form-control input-lg" placeholder="">
+            <input type="number" id="p12" class="form-control input-lg">
           </div>
         </div>
-        <p id="total">去掉最低分：<span class="label label-warning">0</span> 最高分：<span class="label label-success">100</span> 最后得分：<span class="label label-danger">100</span></p>
+        <h3 id="total">最低分：<span class="label label-warning">0</span>最高分：<span class="label label-success">100</span>最后得分：<span class="label label-danger">100</span></h3>
         <p>
-          <a class="btn btn-lg btn-primary" id="score" href="#" role="button">得分</a>
+          <a class="btn btn-lg btn-primary" id="score" href="#" role="button" disabled>统计得分</a>
         </p>
+
+      </div>
+      <div class="main">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>选手姓名</th>
+              <th>最后得分</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
       </div>
 
-    </div> <!-- /container -->
+      <p>Copyright 2013 IT Dept of TFLS. Code by <i>Guowei Zhao</i>.</p>
+    </div>
+    <!-- /.container -->
 
 
-    <script src="js/jquery-1.9.1.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+    <!-- Load JS here for greater good =============================-->
+    <script src="js/jquery-2.0.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
   </body>
