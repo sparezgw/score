@@ -2,18 +2,31 @@ $(function() {
 	var scores = $("input[type='number']"),
 		players = $("#players a");
 	var id;
-	
+
+	$("#main").load("p/_index.html", function() {
+		init();
+	});
+
+	//initial the index page
 	function init() {
-		$(".main:eq(0)").css('display', 'block');
-		$(".main:eq(1)").css('display', 'none');
 		$("#total").css('display', 'none');
 		for (var i = 0; i < scores.length; i++) {
 			scores[i].value = '';
-			scores.eq(i).parent().attr('class', 'col-lg-3');
+			scores.eq(i).parent().attr('class', 'col-sm-3');
 			scores.eq(i).attr('disabled', false);
 		};
 	}
+
+	function title() {
+		init();
+		$("h2").html('<span class="label label-primary"></span>');
+		if(id.length<2) $("h2 span").html("0" + id + "号");
+		else $("h2 span").html(id+"号");
+		var name = players.eq(id-1).html();
+		$("h2").append(" " + name);
+	}
 	
+	//calculate the score in index page
 	$("#score").click(function(event) {
 		var s = Array(),
 			max = sum = 0,
@@ -43,6 +56,7 @@ $(function() {
 		sessionStorage.setItem("S"+id, JSON.stringify(s));
 	});
 
+	//click the player's name in menu (MUST link to index page)
 	players.click(function(event) {
 		id = $(this).attr("data-id");
 		title();
@@ -56,19 +70,12 @@ $(function() {
 		} else init();
 	});
 
-	function title() {
-		init();
-		$("h2").html('<span class="label label-primary"></span>');
-		if(id.length<2) $("h2 span").html("0" + id + "号");
-		else $("h2 span").html(id+"号");
-		var name = players.eq(id-1).html();
-		$("h2").append(" " + name);
-	}
-
+	//list the player's score in menu (MUST link to the link page)
 	$("#list").click(function(event) {
 		// $(this).parent().addClass('active');
-		$(".main:eq(0)").css('display', 'none');
-		$(".main:eq(1)").css('display', 'block');
+		// $(".main:eq(0)").css('display', 'none');
+		// $(".main:eq(1)").css('display', 'block');
+		$("#main").load("p/_list.html");
 		$("tbody").html("");
 		for (var i = 0, td; i < sessionStorage.length; i++) {
 			td = "<tr><td>" + (i+1) + "</td><td>";
@@ -85,5 +92,4 @@ $(function() {
 		init();
 	});
 
-	init();
 });
